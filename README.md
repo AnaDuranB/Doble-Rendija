@@ -78,7 +78,7 @@ def exp_3(matriz,v_inicial):
 ```
 Lo que nos va a retornar,
 
-![192081749-336ee4d3-4ff9-42b8-ab1d-dce9ef788e53](https://user-images.githubusercontent.com/87900830/196323109-e00e342d-9474-41cd-980f-2f24a24ecb74.png)
+![192081749-336ee4d3-4ff9-42b8-ab1d-dce9ef788e5a3](https://user-images.githubusercontent.com/87900830/196323924-e62e480f-cef3-40a1-bb5e-19726088336b.png)
 
 ![192081718-dbed7709-65f0-449d-b533-8c853cee2132](https://user-images.githubusercontent.com/87900830/196323026-e8c00e8d-a3c7-4803-b66a-8ea7879e36eb.png)
 
