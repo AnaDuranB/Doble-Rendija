@@ -38,8 +38,47 @@ Los fotones o partículas de materia (como un electrón) producen un patrón de 
 ---
 ## Simulación haciendo uso de la librería
 Este experimento puede ser representado como sistemas probabilísticos, y de la misma forma, llevado a nuestra librería de la siguiente forma:
-![DSMatriz](https://user-images.githubusercontent.com/87900830/196318580-6c4b9cbe-4f9f-40b7-ab0f-b4fb958bd359.png)
 
+```python
+def exp_3(matriz,v_inicial):
+    print("Experimento Cuantico con 2 rendijas")
+    matriz = [[(0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0)],
+              [(1 / math.sqrt(2), 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0)],
+              [(1 / math.sqrt(2), 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0)],
+              [(0, 0), (-1 / math.sqrt(6), 1 / math.sqrt(6)), (0, 0), (1, 0), (0, 0), (0, 0), (0, 0), (0, 0)],
+              [(0, 0), (-1 / math.sqrt(6), -1 / math.sqrt(6)), (0, 0), (0, 0), (1, 0), (0, 0), (0, 0), (0, 0)],
+              [(0, 0), (1 / math.sqrt(6), -1 / math.sqrt(6)), (-1 / math.sqrt(6), 1 / math.sqrt(6)), (0, 0), (0, 0),
+               (1, 0), (0, 0), (0, 0)],
+              [(0, 0), (0, 0), (-1 / math.sqrt(6), -1 / math.sqrt(6)), (0, 0), (0, 0), (0, 0), (1, 0), (0, 0)],
+              [(0, 0), (0, 0), (1 / math.sqrt(6), -1 / math.sqrt(6)), (0, 0), (0, 0), (0, 0), (0, 0), (1, 0)]]
+    print("Matriz Asociada: ")
+
+    for i in matriz:
+        print(i)
+    tics = 3
+
+    X = [x[:] for x in matriz]
+    for i in range(2, tics + 1):
+        X = lc.productomatricesComplex(X, matriz)
+    print("Estado inicial: ")
+    v_inicial = [[(1, 0)], [(0, 0)], [(0, 0)], [(0, 0)], [(0, 0)], [(0, 0)], [(0, 0)], [(0, 0)]]
+
+    print("Numero de tics:", tics)
+    for i in v_inicial:
+        print(i)
+    posicion = lc.accmatriz_vectorcplx(X, v_inicial)
+
+    print("Vector Final")
+    probabilidades = []
+    for i in range(len(posicion)):
+        probabilidades += [(lc.modulocplx(posicion[i])) ** 2]
+    for i in probabilidades:
+        print(i)
+    lc.graficas(lc.n_tics(matriz), probabilidades)
+```
+Lo que nos va a retornar,
+![192081718-dbed7709-65f0-449d-b533-8c853cee2132](https://user-images.githubusercontent.com/87900830/196323026-e8c00e8d-a3c7-4803-b66a-8ea7879e36eb.png)
+![192081718-dbed7709-65f0-449d-b533-8c853cee2132](https://user-images.githubusercontent.com/87900830/196323033-676923ee-be95-4774-9b4c-8821bb6ab0d5.png)
 
 
 ## Autores
